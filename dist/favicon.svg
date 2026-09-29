@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#0B1624" />
+      <stop offset="100%" stopColor="#020810" />
+    </linearGradient>
+    <linearGradient id="sGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFFFFF" />
+      <stop offset="25%" stopColor="#5FE7CC" />
+      <stop offset="70%" stopColor="#00E5FF" />
+      <stop offset="100%" stopColor="#0284C7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Cyber Rounded Badge Background -->
+  <rect x="5" y="5" width="118" height="118" rx="26" fill="url(#bgGrad)" stroke="#00E5FF" stroke-width="7" />
+
+  <!-- Ultra-Bold, Crystal Clear 'S' Letter -->
+  <text 
+    x="64" 
+    y="70" 
+    text-anchor="middle" 
+    dominant-baseline="central" 
+    font-family="'Arial Black', 'Impact', 'Segoe UI Black', 'Inter', system-ui, sans-serif" 
+    font-size="94" 
+    font-weight="900" 
+    fill="url(#sGrad)"
+    style="text-shadow: 0 0 12px rgba(0, 229, 255, 0.8);"
+  >S</text>
+
+  <!-- Neon Glowing Corner Dots -->
+  <circle cx="26" cy="26" r="4.5" fill="#5FE7CC" />
+  <circle cx="102" cy="102" r="4.5" fill="#00E5FF" />
+</svg>
