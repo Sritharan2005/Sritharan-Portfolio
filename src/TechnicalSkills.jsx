@@ -569,7 +569,7 @@ export default function TechnicalSkills() {
       {/* Seamless Ambient Developer Background Graphic Layer */}
       <div className="tech-ambient-dev-backdrop" aria-hidden="true">
         <img
-          src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+          src={`${import.meta.env.BASE_URL}images/skills-developer-cyber.jpg`}
           alt=""
           className="tech-ambient-dev-img"
         />
