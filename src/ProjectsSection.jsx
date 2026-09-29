@@ -8,7 +8,7 @@ export const ProjectArtworks = {
   Drowsiness: () => (
     <div className="proj-art-canvas proj-art-drowsiness" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/drowsiness-detection.png`}
         alt="Driver Drowsiness Detection"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -30,7 +30,7 @@ export const ProjectArtworks = {
   VirtualMouse: () => (
     <div className="proj-art-canvas proj-art-virtual-mouse" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/virtual-mouse.png`}
         alt="AI Virtual Mouse (Gesture3DMouse)"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -109,7 +109,7 @@ export const ProjectArtworks = {
   Forecasting: () => (
     <div className="proj-art-canvas proj-art-forecast" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/forecasting-dashboard.png`}
         alt="Predictive Forecasting Dashboard"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -172,7 +172,7 @@ export const ProjectArtworks = {
   Deepfake: () => (
     <div className="proj-art-canvas proj-art-deepfake" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/fake-detection.png`}
         alt="AI-Powered Fake Image & Video Detection"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -194,7 +194,7 @@ export const ProjectArtworks = {
   NeuroVision: () => (
     <div className="proj-art-canvas proj-art-neurovision" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/neurovision.png`}
         alt="NeuroVision"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -216,7 +216,7 @@ export const ProjectArtworks = {
   SmpsDigitalTwin: () => (
     <div className="proj-art-canvas proj-art-smps" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/smps-digital-twin.png`}
         alt="AI Digital Twin for SMPS Fault Diagnosis"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -238,7 +238,7 @@ export const ProjectArtworks = {
   PrintingAutomation: () => (
     <div className="proj-art-canvas proj-art-printing" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/printing-automation.png`}
         alt="Printing Automation System"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
@@ -260,7 +260,7 @@ export const ProjectArtworks = {
   Slot06: () => (
     <div className="proj-art-canvas proj-art-slot06" style={{ padding: 0, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", userSelect: "none" }}>
       <img
-        src={`${import.meta.env.BASE_URL}images/contact-earth.png`}
+        src={`${import.meta.env.BASE_URL}images/slot-06.png`}
         alt="Predictive Forecasting Dashboard"
         draggable={false}
         onDragStart={(e) => e.preventDefault()}
