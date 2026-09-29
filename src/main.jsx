@@ -116,8 +116,8 @@ function ScrollProgressBar() {
 
   return (
     <div className="top-scroll-track" aria-hidden="true">
-      <div 
-        className="top-scroll-bar" 
+      <div
+        className="top-scroll-bar"
         style={{ transform: `scaleX(${scrollProgress})` }}
       />
     </div>
@@ -344,7 +344,7 @@ function App() {
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.54 1.06 1.54 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.9c.85 0 1.7.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.63 1.03 2.75 0 3.93-2.35 4.8-4.58 5.05.36.32.68.92.68 1.86 0 1.35-.01 2.44-.01 2.77 0 .27.18.6.69.49A10.22 10.22 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" /></svg>
               </a>
               <a href="https://wa.me/918072428883" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></svg>
               </a>
               <a href="#contact" aria-label="Contact via Email">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
@@ -357,7 +357,7 @@ function App() {
             <div className="hero-ring ring-two" />
             <div className="hero-platform" />
             <div className="portrait-wrap">
-              <img src="/images/sritharan-profile.jpg" alt="Sritharan working at a laptop" />
+              <img src={`${import.meta.env.BASE_URL}images/sritharan-profile.jpg`} alt="Sritharan working at a laptop" />
             </div>
             <div className="hero-orb orb-a" />
             <div className="hero-orb orb-b" />
@@ -530,11 +530,11 @@ function App() {
                     <h2 className="edu-modal-main-title">
                       <span>Machine Learning </span><span className="edu-title-cyan">Internship</span>
                     </h2>
-                    
+
                     <div className="edu-modal-inst-meta" style={{ marginTop: "12px" }}>
                       <div className="edu-meta-item">
                         <svg className="edu-meta-icon edu-icon-purple" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z"/>
+                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z" />
                         </svg>
                         <span style={{ color: "#e2e8f0", fontWeight: "600" }}>Unified Mentor Pvt. Ltd.</span>
                       </div>
@@ -589,7 +589,7 @@ function App() {
                   <div className="edu-modal-stat-card stat-blue">
                     <div className="edu-stat-icon-wrap icon-blue">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z"/>
+                        <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z" />
                       </svg>
                     </div>
                     <div className="edu-stat-info">
@@ -690,153 +690,153 @@ function App() {
                     <h2 className="edu-modal-main-title">
                       <span>Educat</span><span className="edu-title-cyan">ion</span>
                     </h2>
-                <h3 className="edu-modal-deg-title">B.E. Computer Science Engineering (AI & ML)</h3>
-                
-                <div className="edu-modal-inst-meta">
-                  <div className="edu-meta-item">
-                    <svg className="edu-meta-icon edu-icon-purple" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z"/>
+                    <h3 className="edu-modal-deg-title">B.E. Computer Science Engineering (AI & ML)</h3>
+
+                    <div className="edu-modal-inst-meta">
+                      <div className="edu-meta-item">
+                        <svg className="edu-meta-icon edu-icon-purple" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z" />
+                        </svg>
+                        <span>Velalar College of Engineering and Technology</span>
+                      </div>
+                      <div className="edu-meta-item">
+                        <svg className="edu-meta-icon edu-icon-cyan" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                          <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <span>Erode, Tamil Nadu, India</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Middle 3 Stat Cards */}
+                <div className="edu-modal-stat-grid">
+                  {/* Stat 1: Academic Status */}
+                  <div className="edu-modal-stat-card stat-teal">
+                    <div className="edu-stat-icon-wrap icon-teal">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                      </svg>
+                    </div>
+                    <div className="edu-stat-info">
+                      <span className="edu-stat-kicker kicker-teal">ACADEMIC STATUS</span>
+                      <div className="edu-stat-val">
+                        <span>4th </span><span className="edu-val-cyan">Year</span>
+                      </div>
+                      <span className="edu-stat-sub">Undergraduate</span>
+                    </div>
+                  </div>
+
+                  {/* Stat 2: Specialization */}
+                  <div className="edu-modal-stat-card stat-purple">
+                    <div className="edu-stat-icon-wrap icon-purple">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <circle cx="12" cy="12" r="6" />
+                        <circle cx="12" cy="12" r="2" />
+                      </svg>
+                    </div>
+                    <div className="edu-stat-info">
+                      <span className="edu-stat-kicker kicker-purple">SPECIALIZATION</span>
+                      <div className="edu-stat-val edu-stat-val-med">
+                        Artificial Intelligence & Machine Learning
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Stat 3: Duration */}
+                  <div className="edu-modal-stat-card stat-blue">
+                    <div className="edu-stat-icon-wrap icon-blue">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                      </svg>
+                    </div>
+                    <div className="edu-stat-info">
+                      <span className="edu-stat-kicker kicker-blue">DURATION</span>
+                      <div className="edu-stat-val">
+                        2023 — Present
+                      </div>
+                      <span className="edu-stat-sub">(Expected Graduation: 2027)</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Section 1: RELEVANT COURSEWORK */}
+                <div className="edu-modal-section-card">
+                  <div className="edu-sec-icon-col">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                     </svg>
-                    <span>Velalar College of Engineering and Technology</span>
                   </div>
-                  <div className="edu-meta-item">
-                    <svg className="edu-meta-icon edu-icon-cyan" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                      <circle cx="12" cy="10" r="3" />
+                  <div className="edu-sec-content">
+                    <h4 className="edu-sec-title">RELEVANT COURSEWORK</h4>
+                    <div className="edu-course-pills-wrap">
+                      <span className="edu-course-pill pill-purple">Data Structures & Algorithms</span>
+                      <span className="edu-course-pill pill-cyan">Machine Learning</span>
+                      <span className="edu-course-pill pill-purple">Deep Learning</span>
+                      <span className="edu-course-pill pill-cyan">Artificial Intelligence</span>
+                      <span className="edu-course-pill pill-cyan">Computer Vision</span>
+                      <span className="edu-course-pill pill-purple">Database Management Systems</span>
+                      <span className="edu-course-pill pill-blue">Software Engineering</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Section 2: ACADEMIC FOCUS */}
+                <div className="edu-modal-section-card">
+                  <div className="edu-sec-icon-col">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="6" />
+                      <circle cx="12" cy="12" r="2" />
                     </svg>
-                    <span>Erode, Tamil Nadu, India</span>
+                  </div>
+                  <div className="edu-sec-content">
+                    <h4 className="edu-sec-title">ACADEMIC FOCUS</h4>
+                    <p className="edu-sec-body-text">
+                      Building a strong foundation in computer science with a focus on AI & ML, while applying concepts through hands-on projects and continuous learning.
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* Middle 3 Stat Cards */}
-            <div className="edu-modal-stat-grid">
-              {/* Stat 1: Academic Status */}
-              <div className="edu-modal-stat-card stat-teal">
-                <div className="edu-stat-icon-wrap icon-teal">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                </div>
-                <div className="edu-stat-info">
-                  <span className="edu-stat-kicker kicker-teal">ACADEMIC STATUS</span>
-                  <div className="edu-stat-val">
-                    <span>4th </span><span className="edu-val-cyan">Year</span>
+                {/* Section 3: CURRENT FOCUS */}
+                <div className="edu-modal-section-card">
+                  <div className="edu-sec-icon-col">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="18" y1="20" x2="18" y2="10" />
+                      <line x1="12" y1="20" x2="12" y2="4" />
+                      <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
                   </div>
-                  <span className="edu-stat-sub">Undergraduate</span>
-                </div>
-              </div>
-
-              {/* Stat 2: Specialization */}
-              <div className="edu-modal-stat-card stat-purple">
-                <div className="edu-stat-icon-wrap icon-purple">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <circle cx="12" cy="12" r="6" />
-                    <circle cx="12" cy="12" r="2" />
-                  </svg>
-                </div>
-                <div className="edu-stat-info">
-                  <span className="edu-stat-kicker kicker-purple">SPECIALIZATION</span>
-                  <div className="edu-stat-val edu-stat-val-med">
-                    Artificial Intelligence & Machine Learning
+                  <div className="edu-sec-content">
+                    <h4 className="edu-sec-title">CURRENT FOCUS</h4>
+                    <div className="edu-course-pills-wrap">
+                      <span className="edu-course-pill pill-cyan">DSA</span>
+                      <span className="edu-course-pill pill-cyan">AI & ML</span>
+                      <span className="edu-course-pill pill-cyan">Python</span>
+                      <span className="edu-course-pill pill-cyan">Java</span>
+                      <span className="edu-course-pill pill-cyan">SQL</span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </>
+            )}
 
-              {/* Stat 3: Duration */}
-              <div className="edu-modal-stat-card stat-blue">
-                <div className="edu-stat-icon-wrap icon-blue">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                  </svg>
-                </div>
-                <div className="edu-stat-info">
-                  <span className="edu-stat-kicker kicker-blue">DURATION</span>
-                  <div className="edu-stat-val">
-                    2023 — Present
-                  </div>
-                  <span className="edu-stat-sub">(Expected Graduation: 2027)</span>
-                </div>
-              </div>
+            {/* Bottom Modal Action */}
+            <div className="edu-modal-bottom-row">
+              <button className="edu-modal-close-action-btn" onClick={() => setSelectedEduDetail(null)}>
+                CLOSE
+              </button>
             </div>
-
-            {/* Section 1: RELEVANT COURSEWORK */}
-            <div className="edu-modal-section-card">
-              <div className="edu-sec-icon-col">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                </svg>
-              </div>
-              <div className="edu-sec-content">
-                <h4 className="edu-sec-title">RELEVANT COURSEWORK</h4>
-                <div className="edu-course-pills-wrap">
-                  <span className="edu-course-pill pill-purple">Data Structures & Algorithms</span>
-                  <span className="edu-course-pill pill-cyan">Machine Learning</span>
-                  <span className="edu-course-pill pill-purple">Deep Learning</span>
-                  <span className="edu-course-pill pill-cyan">Artificial Intelligence</span>
-                  <span className="edu-course-pill pill-cyan">Computer Vision</span>
-                  <span className="edu-course-pill pill-purple">Database Management Systems</span>
-                  <span className="edu-course-pill pill-blue">Software Engineering</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Section 2: ACADEMIC FOCUS */}
-            <div className="edu-modal-section-card">
-              <div className="edu-sec-icon-col">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
-              </div>
-              <div className="edu-sec-content">
-                <h4 className="edu-sec-title">ACADEMIC FOCUS</h4>
-                <p className="edu-sec-body-text">
-                  Building a strong foundation in computer science with a focus on AI & ML, while applying concepts through hands-on projects and continuous learning.
-                </p>
-              </div>
-            </div>
-
-            {/* Section 3: CURRENT FOCUS */}
-            <div className="edu-modal-section-card">
-              <div className="edu-sec-icon-col">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10" />
-                  <line x1="12" y1="20" x2="12" y2="4" />
-                  <line x1="6" y1="20" x2="6" y2="14" />
-                </svg>
-              </div>
-              <div className="edu-sec-content">
-                <h4 className="edu-sec-title">CURRENT FOCUS</h4>
-                <div className="edu-course-pills-wrap">
-                  <span className="edu-course-pill pill-cyan">DSA</span>
-                  <span className="edu-course-pill pill-cyan">AI & ML</span>
-                  <span className="edu-course-pill pill-cyan">Python</span>
-                  <span className="edu-course-pill pill-cyan">Java</span>
-                  <span className="edu-course-pill pill-cyan">SQL</span>
-                </div>
-              </div>
-            </div>
-          </>
-        )}
-
-        {/* Bottom Modal Action */}
-        <div className="edu-modal-bottom-row">
-          <button className="edu-modal-close-action-btn" onClick={() => setSelectedEduDetail(null)}>
-            CLOSE
-          </button>
+          </div>
         </div>
-      </div>
-    </div>
-  )}
+      )}
     </>
   );
 }
@@ -1334,7 +1334,7 @@ function InteractiveIdeCard() {
 
         <div className="ide-portrait-section">
           <div className="ide-portrait-frame">
-            <img src="/images/about page image.png" alt="Sritharan R" />
+            <img src={`${import.meta.env.BASE_URL}images/about page image.png`} alt="Sritharan R" />
           </div>
         </div>
 
@@ -1437,7 +1437,7 @@ function GraduationCapHologram() {
 
         {/* Cap Top Diamond Mesh */}
         <polygon points="130,28 226,64 130,100 34,64" stroke="url(#cyanGrad)" strokeWidth="1.8" fill="rgba(6, 26, 32, 0.6)" />
-        
+
         {/* Wireframe Internal Grid on Top Diamond */}
         <line x1="130" y1="28" x2="130" y2="100" stroke="rgba(95, 231, 204, 0.45)" strokeWidth="1" />
         <line x1="34" y1="64" x2="226" y2="64" stroke="rgba(95, 231, 204, 0.45)" strokeWidth="1" />
@@ -1498,7 +1498,7 @@ function LaptopHologram() {
         {/* Perspective Laptop Base Plate */}
         <polygon points="60,118 200,118 226,146 34,146" stroke="#5fe7cc" strokeWidth="1.5" fill="rgba(8, 26, 34, 0.65)" />
         <polygon points="62,119 198,119 223,144 37,144" stroke="rgba(56, 189, 248, 0.35)" strokeWidth="0.8" fill="none" />
-        
+
         {/* Keyboard Mesh Lines */}
         <polygon points="68,122 192,122 208,135 52,135" stroke="rgba(95, 231, 204, 0.45)" strokeWidth="0.9" fill="rgba(6, 20, 28, 0.5)" />
         <line x1="75" y1="128" x2="185" y2="128" stroke="rgba(95, 231, 204, 0.3)" strokeWidth="0.7" />
@@ -1615,11 +1615,11 @@ function EducationExperienceSection({ onOpenDetail }) {
                     </linearGradient>
                   </defs>
                   {/* Outer Chamfered Contour */}
-                  <path 
-                    d="M 20,4 L 525,4 L 565,4 L 596,40 L 596,260 L 565,296 L 380,296 L 365,290 L 235,290 L 220,296 L 20,296 L 4,278 L 4,22 Z" 
-                    fill="none" 
-                    stroke="url(#cardGrad1)" 
-                    strokeWidth="1.8" 
+                  <path
+                    d="M 20,4 L 525,4 L 565,4 L 596,40 L 596,260 L 565,296 L 380,296 L 365,290 L 235,290 L 220,296 L 20,296 L 4,278 L 4,22 Z"
+                    fill="none"
+                    stroke="url(#cardGrad1)"
+                    strokeWidth="1.8"
                   />
                   {/* Top-Right Chamfer Accent Notch */}
                   <line x1="550" y1="4" x2="596" y2="48" stroke="#5fe7cc" strokeWidth="2.8" filter="drop-shadow(0 0 6px #5fe7cc)" />
@@ -1631,7 +1631,7 @@ function EducationExperienceSection({ onOpenDetail }) {
               </div>
 
               <div className="edu-box-glow-top" />
-              
+
               {/* Top Row: Date Badge & Top-Right Chamfer Pill */}
               <div className="edu-card-top-row">
                 <div className="edu-badge-tag">2023 — PRESENT</div>
@@ -1659,11 +1659,11 @@ function EducationExperienceSection({ onOpenDetail }) {
                   <div className="edu-text-group">
                     <h3 className="edu-box-title">Education</h3>
                     <h4 className="edu-box-subtitle">B.E. Computer Science Engineering (AI & ML)</h4>
-                    
+
                     <div className="edu-box-bullets">
                       <div className="edu-bullet-row">
                         <svg className="edu-bullet-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2">
-                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z"/>
+                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z" />
                         </svg>
                         <span>Velalar College of Engineering and Technology</span>
                       </div>
@@ -1681,8 +1681,8 @@ function EducationExperienceSection({ onOpenDetail }) {
 
               {/* Bottom Center Explore Button */}
               <div className="edu-card-bottom-bar">
-                <button 
-                  className="edu-explore-btn" 
+                <button
+                  className="edu-explore-btn"
                   onClick={() => onOpenDetail(eduDetails.education)}
                   aria-label="Explore Education Details"
                 >
@@ -1719,11 +1719,11 @@ function EducationExperienceSection({ onOpenDetail }) {
                     </linearGradient>
                   </defs>
                   {/* Outer Chamfered Contour */}
-                  <path 
-                    d="M 20,4 L 525,4 L 565,4 L 596,40 L 596,260 L 565,296 L 380,296 L 365,290 L 235,290 L 220,296 L 20,296 L 4,278 L 4,22 Z" 
-                    fill="none" 
-                    stroke="url(#cardGrad2)" 
-                    strokeWidth="1.8" 
+                  <path
+                    d="M 20,4 L 525,4 L 565,4 L 596,40 L 596,260 L 565,296 L 380,296 L 365,290 L 235,290 L 220,296 L 20,296 L 4,278 L 4,22 Z"
+                    fill="none"
+                    stroke="url(#cardGrad2)"
+                    strokeWidth="1.8"
                   />
                   {/* Top-Right Chamfer Accent Notch */}
                   <line x1="550" y1="4" x2="596" y2="48" stroke="#5fe7cc" strokeWidth="2.8" filter="drop-shadow(0 0 6px #5fe7cc)" />
@@ -1735,7 +1735,7 @@ function EducationExperienceSection({ onOpenDetail }) {
               </div>
 
               <div className="edu-box-glow-top" />
-              
+
               {/* Top Row: Date Badge & Top-Right Chamfer Pill */}
               <div className="edu-card-top-row">
                 <div className="edu-badge-tag">2026</div>
@@ -1763,11 +1763,11 @@ function EducationExperienceSection({ onOpenDetail }) {
                   <div className="edu-text-group">
                     <h3 className="edu-box-title">Internship</h3>
                     <h4 className="edu-box-subtitle">Machine Learning Intern</h4>
-                    
+
                     <div className="edu-box-bullets">
                       <div className="edu-bullet-row">
                         <svg className="edu-bullet-svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5fe7cc" strokeWidth="2">
-                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z"/>
+                          <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M14 10v11M12 2L2 7h20L12 2z" />
                         </svg>
                         <span>Unified Mentor Pvt. Ltd.</span>
                       </div>
@@ -1785,8 +1785,8 @@ function EducationExperienceSection({ onOpenDetail }) {
 
               {/* Bottom Center Explore Button */}
               <div className="edu-card-bottom-bar">
-                <button 
-                  className="edu-explore-btn" 
+                <button
+                  className="edu-explore-btn"
                   onClick={() => onOpenDetail(eduDetails.internship)}
                   aria-label="Explore Internship Details"
                 >
