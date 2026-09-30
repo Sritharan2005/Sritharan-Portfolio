@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSending, setIsSending] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState("idle"); // "idle" | "success" | "error"
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -11,40 +13,39 @@ export default function ContactSection() {
     if (isSending) return;
 
     setIsSending(true);
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/srirogu@gmail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          message: formData.message.trim(),
-          _subject: `New Portfolio Message from ${formData.name.trim()} (${formData.email.trim()})`,
-          _template: "table",
-          _captcha: "false"
-        })
-      });
+    setStatus("idle");
+    setErrorMessage("");
 
-      if (response.ok) {
-        setSent(true);
-        setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setSent(false), 5000);
-      } else {
-        // Fallback to mail client if service returns an error
-        window.location.href = `mailto:srirogu@gmail.com?subject=${encodeURIComponent("Portfolio Message from " + formData.name)}&body=${encodeURIComponent(formData.message + "\n\nFrom: " + formData.name + " (" + formData.email + ")")}`;
-        setSent(true);
-        setFormData({ name: "", email: "", message: "" });
-        setTimeout(() => setSent(false), 5000);
-      }
-    } catch {
-      // Fallback to default mail client if network fails
-      window.location.href = `mailto:srirogu@gmail.com?subject=${encodeURIComponent("Portfolio Message from " + formData.name)}&body=${encodeURIComponent(formData.message + "\n\nFrom: " + formData.name + " (" + formData.email + ")")}`;
-      setSent(true);
+    const serviceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_niyuzzf").trim();
+    const templateId = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_7ejcbpo").trim();
+    const publicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "OdzARSITdUOqqQla_").trim();
+
+    console.log(`[EmailJS DEBUG]\nserviceId = ${serviceId}\ntemplateId = ${templateId}\npublicKey = ${publicKey}`);
+
+    try {
+      emailjs.init({ publicKey });
+
+      const templateParams = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        message: formData.message.trim(),
+        reply_to: formData.email.trim(),
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setStatus("success");
       setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setSent(false), 5000);
+      setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
+    } catch (error) {
+      console.error("EmailJS sending error:", error);
+      setStatus("error");
+      setErrorMessage(
+        (error && (error.text || error.message)) ||
+          "Failed to send message. Please try again."
+      );
     } finally {
       setIsSending(false);
     }
@@ -247,11 +248,11 @@ export default function ContactSection() {
 
               {/* Row 3: Action Button & Sent State */}
               <div className="contact-form-action-row">
-                <button type="submit" className="contact-send-btn" disabled={isSending || sent}>
+                <button type="submit" className="contact-send-btn" disabled={isSending || status === "success"}>
                   <span>
                     {isSending
                       ? "TRANSMITTING MESSAGE..."
-                      : sent
+                      : status === "success"
                         ? "MESSAGE SENT SUCCESSFULLY ✓"
                         : "SEND MESSAGE →"}
                   </span>
@@ -259,7 +260,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   className="contact-plane-badge"
-                  disabled={isSending || sent}
+                  disabled={isSending || status === "success"}
                   aria-label="Send Message"
                   title="Send Message"
                 >
@@ -269,6 +270,14 @@ export default function ContactSection() {
                   </svg>
                 </button>
               </div>
+
+              {/* Status feedback message if error */}
+              {status === "error" && (
+                <div style={{ color: "#FF5370", fontSize: "11.5px", fontFamily: "Inter, sans-serif", display: "flex", alignItems: "center", gap: "6px", marginTop: "2px" }}>
+                  <span>⚠</span>
+                  <span>{errorMessage || "Failed to send message. Please try again."}</span>
+                </div>
+              )}
 
               {/* Row 4: Reply Info Note */}
               <div className="contact-reply-note">
