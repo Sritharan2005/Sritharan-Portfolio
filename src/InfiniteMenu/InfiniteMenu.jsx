@@ -449,24 +449,39 @@ class ArcballControl {
     this._rotationVelocity = 0;
     this._combinedQuat = quat.create();
 
-    canvas.addEventListener('pointerdown', e => {
+    this._onPointerDown = e => {
       vec2.set(this.pointerPos, e.clientX, e.clientY);
       vec2.copy(this.previousPointerPos, this.pointerPos);
       this.isPointerDown = true;
-    });
-    canvas.addEventListener('pointerup', () => {
+    };
+    this._onPointerUp = () => {
       this.isPointerDown = false;
-    });
-    canvas.addEventListener('pointerleave', () => {
-      this.isPointerDown = false;
-    });
-    canvas.addEventListener('pointermove', e => {
+    };
+    this._onPointerMove = e => {
       if (this.isPointerDown) {
         vec2.set(this.pointerPos, e.clientX, e.clientY);
       }
-    });
+    };
+
+    canvas.addEventListener('pointerdown', this._onPointerDown, { passive: true });
+    window.addEventListener('pointerup', this._onPointerUp, { passive: true });
+    window.addEventListener('pointercancel', this._onPointerUp, { passive: true });
+    window.addEventListener('pointermove', this._onPointerMove, { passive: true });
 
     canvas.style.touchAction = 'none';
+  }
+
+  destroy() {
+    if (this.canvas && this._onPointerDown) {
+      this.canvas.removeEventListener('pointerdown', this._onPointerDown);
+    }
+    if (this._onPointerUp) {
+      window.removeEventListener('pointerup', this._onPointerUp);
+      window.removeEventListener('pointercancel', this._onPointerUp);
+    }
+    if (this._onPointerMove) {
+      window.removeEventListener('pointermove', this._onPointerMove);
+    }
   }
 
   update(deltaTime, targetFrameDuration = 16) {
@@ -595,6 +610,9 @@ class InfiniteGridMenu {
   smoothRotationVelocity = 0;
   scaleFactor = 1.0;
   movementActive = false;
+  #isVisible = true;
+  #isDestroyed = false;
+  #rafId = null;
 
   constructor(canvas, items, onActiveItemChange, onMovementChange, onInit = null, scale = 1.0) {
     this.canvas = canvas;
@@ -604,6 +622,28 @@ class InfiniteGridMenu {
     this.scaleFactor = scale;
     this.camera.position[2] = 3 * scale;
     this.#init(onInit);
+  }
+
+  setVisible(visible) {
+    const wasVisible = this.#isVisible;
+    this.#isVisible = visible;
+    if (!wasVisible && visible && !this.#isDestroyed) {
+      this.#time = performance.now();
+      if (!this.#rafId) {
+        this.#rafId = requestAnimationFrame(t => this.run(t));
+      }
+    }
+  }
+
+  destroy() {
+    this.#isDestroyed = true;
+    if (this.#rafId) {
+      cancelAnimationFrame(this.#rafId);
+      this.#rafId = null;
+    }
+    if (this.control && this.control.destroy) {
+      this.control.destroy();
+    }
   }
 
   resize() {
@@ -619,7 +659,12 @@ class InfiniteGridMenu {
   }
 
   run(time = 0) {
-    this.#deltaTime = Math.min(32, time - this.#time);
+    if (this.#isDestroyed) return;
+    if (!this.#isVisible) {
+      this.#rafId = null;
+      return;
+    }
+    this.#deltaTime = Math.min(32, time - (this.#time || time));
     this.#time = time;
     this.#deltaFrames = this.#deltaTime / this.TARGET_FRAME_DURATION;
     this.#frames += this.#deltaFrames;
@@ -627,7 +672,7 @@ class InfiniteGridMenu {
     this.#animate(this.#deltaTime);
     this.#render();
 
-    requestAnimationFrame(t => this.run(t));
+    this.#rafId = requestAnimationFrame(t => this.run(t));
   }
 
   #init(onInit) {
@@ -919,6 +964,7 @@ export default function InfiniteMenu({ items = [], scale = 1.0, backgroundColor 
   useEffect(() => {
     const canvas = canvasRef.current;
     let sketch;
+    let observer;
 
     const handleActiveItem = index => {
       const itemIndex = index % items.length;
@@ -931,9 +977,19 @@ export default function InfiniteMenu({ items = [], scale = 1.0, backgroundColor 
         items.length ? items : defaultItems,
         handleActiveItem,
         setIsMoving,
-        sk => sk.run(),
+        sk => sk.run(performance.now()),
         scale
       );
+
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (sketch) {
+            sketch.setVisible(entry.isIntersecting);
+          }
+        },
+        { rootMargin: '100px 0px' }
+      );
+      observer.observe(canvas);
     }
 
     const handleResize = () => {
@@ -947,6 +1003,8 @@ export default function InfiniteMenu({ items = [], scale = 1.0, backgroundColor 
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      if (observer) observer.disconnect();
+      if (sketch) sketch.destroy();
     };
   }, [items, scale]);
 

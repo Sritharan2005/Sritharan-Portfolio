@@ -189,25 +189,36 @@ function App() {
     let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
     let x = tx, y = ty;
     let raf;
+    let isMoving = false;
 
-    const move = (e) => {
-      tx = e.clientX;
-      ty = e.clientY;
-    };
-
-    let lastTime = performance.now();
     const loop = (now) => {
       const currentTime = now || performance.now();
       const dt = Math.min((currentTime - lastTime) / 1000, 0.08);
       lastTime = currentTime;
-      const factor = 1 - Math.exp(-18 * dt);
+      const factor = 1 - Math.exp(-22 * dt);
       x += (tx - x) * factor;
       y += (ty - y) * factor;
       cursor.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       if (spotlight) {
         spotlight.style.transform = `translate3d(${x}px, ${y}px, 0)`;
       }
-      raf = requestAnimationFrame(loop);
+      const dist = Math.abs(tx - x) + Math.abs(ty - y);
+      if (dist > 0.08) {
+        raf = requestAnimationFrame(loop);
+      } else {
+        isMoving = false;
+      }
+    };
+
+    let lastTime = performance.now();
+    const move = (e) => {
+      tx = e.clientX;
+      ty = e.clientY;
+      if (!isMoving) {
+        isMoving = true;
+        lastTime = performance.now();
+        raf = requestAnimationFrame(loop);
+      }
     };
 
     window.addEventListener("mousemove", move, { passive: true });
@@ -827,13 +838,6 @@ function App() {
                 </div>
               </>
             )}
-
-            {/* Bottom Modal Action */}
-            <div className="edu-modal-bottom-row">
-              <button className="edu-modal-close-action-btn" onClick={() => setSelectedEduDetail(null)}>
-                CLOSE
-              </button>
-            </div>
           </div>
         </div>
       )}
@@ -848,113 +852,16 @@ function ThreeBackground() {
     const canvas = ref.current;
     if (!canvas) return;
 
-    let isVisible = true;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { rootMargin: "150px 0px" }
-    );
-    observer.observe(canvas);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.z = 9;
-
-    const renderer = new THREE.WebGLRenderer({
-      canvas,
-      alpha: true,
-      antialias: false,
-      powerPreference: "high-performance"
-    });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-    const group = new THREE.Group();
-    scene.add(group);
-
-    const particleGeo = new THREE.BufferGeometry();
-    const count = 220;
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 28;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 18;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 14;
-    }
-    particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const particleMat = new THREE.PointsMaterial({ color: 0xc9d7ff, size: 0.025, transparent: true, opacity: 0.45 });
-    const particles = new THREE.Points(particleGeo, particleMat);
-    scene.add(particles);
-
-    const geo = new THREE.IcosahedronGeometry(0.65, 0);
-    const mats = [
-      new THREE.MeshStandardMaterial({ color: 0x1b2d47, metalness: 0.7, roughness: 0.25 }),
-      new THREE.MeshStandardMaterial({ color: 0x194d4b, metalness: 0.75, roughness: 0.2 }),
-      new THREE.MeshStandardMaterial({ color: 0x203a5d, metalness: 0.65, roughness: 0.3 })
-    ];
-    const forms = [];
-    for (let i = 0; i < 6; i++) {
-      const m = new THREE.Mesh(geo, mats[i % mats.length]);
-      m.position.set((Math.random() - .5) * 15, (Math.random() - .5) * 10, -1 - Math.random() * 7);
-      m.scale.setScalar(.35 + Math.random() * .65);
-      group.add(m);
-      forms.push(m);
-    }
-
-    const ambient = new THREE.AmbientLight(0x9db6d8, 1.5);
-    scene.add(ambient);
-    const key = new THREE.PointLight(0x55c9c5, 10, 20);
-    key.position.set(3, 3, 5);
-    scene.add(key);
-    const warm = new THREE.PointLight(0x78b9b0, 7, 18);
-    warm.position.set(-5, -2, 3);
-    scene.add(warm);
-
-    const mouse = new THREE.Vector2(0, 0);
-    const target = new THREE.Vector2(0, 0);
-    const dragOrbit = new THREE.Vector2(0, 0);
-    let dragging = false;
-    let lastPointer = { x: 0, y: 0 };
-
-    const onMove = (e) => {
-      target.x = (e.clientX / window.innerWidth - 0.5) * 2;
-      target.y = -(e.clientY / window.innerHeight - 0.5) * 2;
-      if (!dragging) return;
-      dragOrbit.x += (e.clientX - lastPointer.x) * 0.007;
-      dragOrbit.y += (e.clientY - lastPointer.y) * 0.0035;
-      lastPointer = { x: e.clientX, y: e.clientY };
-    };
-    const onPointerDown = (e) => {
-      if (e.button !== 0 || e.target.closest("a, button, input, textarea")) return;
-      dragging = true;
-      lastPointer = { x: e.clientX, y: e.clientY };
-      document.body.classList.add("is-orbiting");
-    };
-    const onPointerUp = () => {
-      dragging = false;
-      document.body.classList.remove("is-orbiting");
-    };
-    window.addEventListener("mousemove", onMove, { passive: true });
-    window.addEventListener("mousedown", onPointerDown, { passive: true });
-    window.addEventListener("mouseup", onPointerUp, { passive: true });
-
     let raf;
-    let lastRender = 0;
     const clock = new THREE.Clock();
 
-    const animate = (time) => {
+    const animate = () => {
       if (!isVisible) {
-        raf = requestAnimationFrame(animate);
+        raf = null;
         return;
       }
-      if (time - lastRender < 30) {
-        raf = requestAnimationFrame(animate);
-        return;
-      }
-      lastRender = time;
       const t = clock.getElapsedTime();
-      mouse.lerp(target, 0.04);
+      mouse.lerp(target, 0.06);
       group.rotation.y = dragOrbit.x + mouse.x * 0.08 + Math.sin(t * 0.08) * 0.03;
       group.rotation.x = dragOrbit.y + mouse.y * 0.05;
       particles.rotation.y = t * 0.008;
@@ -971,6 +878,18 @@ function ThreeBackground() {
       raf = requestAnimationFrame(animate);
     };
     raf = requestAnimationFrame(animate);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (!wasVisible && isVisible && !raf) {
+          raf = requestAnimationFrame(animate);
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+    observer.observe(canvas);
 
     const resize = () => {
       const w = window.innerWidth;
@@ -1993,13 +1912,6 @@ function AsciiRain({
     if (!wrap || !canvas || !context) return undefined;
 
     let isVisible = true;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { rootMargin: "150px 0px" }
-    );
-    observer.observe(wrap);
 
     const chars = [...glyphs];
     const pick = () => chars[Math.floor(Math.random() * chars.length)];
@@ -2084,7 +1996,7 @@ function AsciiRain({
     const loop = (time) => {
       if (!alive) return;
       if (!isVisible) {
-        animationFrame = requestAnimationFrame(loop);
+        animationFrame = null;
         return;
       }
       if (time - lastPaint < 33) {
@@ -2103,10 +2015,22 @@ function AsciiRain({
     resizeObserver.observe(wrap);
     animationFrame = requestAnimationFrame(loop);
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (!wasVisible && isVisible && !animationFrame) {
+          animationFrame = requestAnimationFrame(loop);
+        }
+      },
+      { rootMargin: "150px 0px" }
+    );
+    observer.observe(wrap);
+
     return () => {
       alive = false;
       observer.disconnect();
-      cancelAnimationFrame(animationFrame);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
       resizeObserver.disconnect();
     };
   }, [density, glyphSize, glyphs, headColor, speed, trail, trailColor]);
